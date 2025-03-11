@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   api:
-    container_name: proyecto_python-api  # 👈 Nombre fijo del contenedor API
+    container_name: proyecto_python-api5  # 👈 Nombre fijo del contenedor API
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -23,10 +23,10 @@ services:
       - my_network
 
   db:
-    container_name: proyecto_python-db  # Nombre fijo del contenedor DB
+    container_name: proyecto_python-db5  # Nombre fijo del contenedor DB
     image: mariadb:10.5
     ports:
-      - "3306:3306"
+      - "7105:7105"
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: reviews_db
@@ -37,12 +37,12 @@ services:
       - my_network
 
   web:
-    container_name: proyecto_python-web  # Nombre fijo del contenedor WEB
+    container_name: proyecto_python-web5  # Nombre fijo del contenedor WEB
     build:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - "7777:80"
+      - "6105:80"
     volumes:
       - ./client:/usr/local/apache2/htdocs
     depends_on:
@@ -51,7 +51,7 @@ services:
       - my_network
 
   phpmyadmin:
-    container_name: proyecto_python-phpmyadmin  # Nombre fijo para phpMyAdmin
+    container_name: proyecto_python-phpmyadmin5  # Nombre fijo para phpMyAdmin
     image: phpmyadmin
     restart: always
     environment:

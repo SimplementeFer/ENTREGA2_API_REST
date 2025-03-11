@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   api:
-    container_name: proyecto_python-api5  # 👈 Nombre fijo del contenedor API
+    container_name: proyecto_python-apib5  # 👈 Nombre fijo del contenedor API
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -23,7 +23,7 @@ services:
       - my_network
 
   db:
-    container_name: proyecto_python-db5  # Nombre fijo del contenedor DB
+    container_name: proyecto_python-dbb5  # Nombre fijo del contenedor DB
     image: mariadb:10.5
     ports:
       - "7105:7105"
@@ -37,7 +37,7 @@ services:
       - my_network
 
   web:
-    container_name: proyecto_python-web5  # Nombre fijo del contenedor WEB
+    container_name: proyecto_python-webb5  # Nombre fijo del contenedor WEB
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -51,7 +51,7 @@ services:
       - my_network
 
   phpmyadmin:
-    container_name: proyecto_python-phpmyadmin5  # Nombre fijo para phpMyAdmin
+    container_name: proyecto_python-phpmyadminb5  # Nombre fijo para phpMyAdmin
     image: phpmyadmin
     restart: always
     environment:

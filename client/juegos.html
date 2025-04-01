@@ -41,7 +41,7 @@
         async function deleteGame(id) {
             if (!confirm("¿Seguro que deseas eliminar este juego?")) return;
 
-            const response = await fetch(`/api/games/${gvame.id}`, { method: 'DELETE' });
+            const response = await fetch(`/api/games/${id}`, { method: 'DELETE' });
             if (response.ok) {
                 alert("Juego eliminado exitosamente.");
                 fetchGames();

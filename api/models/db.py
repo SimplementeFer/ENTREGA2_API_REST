@@ -1,14 +1,14 @@
 import pymysql
-import os
+import settings  # Importamos settings.py
 
 def get_db_connection():
     try:
         connection = pymysql.connect(
-            host=os.environ.get('DB_HOST', 'db'),
-            user=os.environ.get('DB_USER', 'root'),
-            password=os.environ.get('DB_PASSWORD', 'example'),
-            database=os.environ.get('DB_NAME', 'reviews_db'),
-            port=int(os.environ.get('DB_PORT', 3306)),
+            host=settings.DB_HOST,
+            user=settings.DB_USER,
+            password=settings.DB_PASSWORD,
+            database=settings.DB_NAME,
+            port=settings.DB_PORT,
             cursorclass=pymysql.cursors.DictCursor
         )
         return connection

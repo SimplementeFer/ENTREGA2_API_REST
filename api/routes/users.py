@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from models.db import get_db_connection
+from funciones_auxiliares import sanitize_input  # Importamos la función de sanitización
 
 # Creación del Blueprint para las rutas de usuario
 users_blueprint = Blueprint('users', __name__)
@@ -15,6 +16,10 @@ def register_user():
     # Validar si los datos necesarios están presentes
     if not username or not password:
         return jsonify({"error": "Faltan datos obligatorios"}), 400
+
+    # Sanitizar la entrada
+    username = sanitize_input(username)
+    password = sanitize_input(password)
 
     # Conexión a la base de datos
     connection = get_db_connection()
@@ -46,6 +51,10 @@ def login_user():
     # Validar si los datos necesarios están presentes
     if not username or not password:
         return jsonify({"error": "Faltan datos obligatorios"}), 400
+
+    # Sanitizar la entrada
+    username = sanitize_input(username)
+    password = sanitize_input(password)
 
     # Conexión a la base de datos
     connection = get_db_connection()

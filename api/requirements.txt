@@ -3,3 +3,4 @@ flask-mysqldb
 pymysql
 werkzeug
 bleach
+bcrypt

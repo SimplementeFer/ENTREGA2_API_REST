@@ -12,7 +12,7 @@ def sanitize_input(user_input):
     return bleach.clean(escaped_input)  # Limpia cualquier HTML no permitido
     
 #def cipher_password(password):
-  hashAndSalt = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(10));
+  #hashAndSalt = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(10));
   #return hashAndSalt
 #def compare_password(password_hash,password):
    #if password_hash is None:
